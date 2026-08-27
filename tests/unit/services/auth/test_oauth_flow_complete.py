@@ -456,8 +456,10 @@ class TestConfiguredRedirectUri:
         new_callable=mock_open,
         read_data='{"installed": {"client_id": "test", "client_secret": "secret"}}',
     )
+    @patch("app.services.auth.HTTPServer")
     def test_unset_redirect_uri_keeps_run_local_server(
         self,
+        mock_http_server,
         mock_file,
         mock_web_auth,
         mock_flow,
@@ -487,4 +489,7 @@ class TestConfiguredRedirectUri:
         auth.get_gmail_service()
 
         assert started.wait(timeout=5), "run_local_server was never called"
-        mock_flow_instance.authorization_url.assert_not_called()
+        # The manual branch is the one that stands up its own callback server;
+        # asserting on authorization_url no longer works here because it is
+        # wrapped to publish the consent URL to the web UI.
+        mock_http_server.assert_not_called()
