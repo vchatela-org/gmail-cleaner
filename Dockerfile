@@ -30,6 +30,11 @@ ENV WEB_AUTH=true
 # Pick up security updates published after the base image was tagged
 RUN apk upgrade --no-cache
 
+# The python base image ships setuptools 70.3.0, and CVE-2025-47273 is fixed in
+# 78.1.1. Nothing here imports it - the app runs from /opt/venv - but a flagged
+# package left in the runtime layer is a finding all the same.
+RUN python -m pip install --no-cache-dir --upgrade 'setuptools>=78.1.1'
+
 # Take the resolved venv, and leave uv behind in the builder. It lives outside
 # /app so the COPY below cannot clobber it with a venv from the build context.
 COPY --from=builder /opt/venv /opt/venv
