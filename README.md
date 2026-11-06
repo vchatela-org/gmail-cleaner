@@ -5,7 +5,7 @@
 A **free**, privacy-focused tool to bulk unsubscribe from emails, delete emails by sender, and mark emails as read. No subscriptions, no data collection - runs 100% on your machine.
 
 
-![Python](https://img.shields.io/badge/Python-3.9+-blue?style=flat-square&logo=python)
+![Python](https://img.shields.io/badge/Python-3.10+-blue?style=flat-square&logo=python)
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=flat-square&logo=docker)
 ![Gmail API](https://img.shields.io/badge/Gmail-API-EA4335?style=flat-square&logo=gmail)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
@@ -72,7 +72,7 @@ Lets make this tool a better one by improving as much as possible, All features 
 ## Prerequisites
 
 - **Docker**: [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-- **Local (Python)**: [Python 3.9+](https://www.python.org/downloads/) and [uv](https://docs.astral.sh/uv/getting-started/installation/)
+- **Local (Python)**: [Python 3.10+](https://www.python.org/downloads/) and [uv](https://docs.astral.sh/uv/getting-started/installation/)
 
 ## Setup
 
